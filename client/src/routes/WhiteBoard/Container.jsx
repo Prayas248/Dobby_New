@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import './Container.css'
-import { CloseIcon } from '@chakra-ui/icons'
 import Board from './board.jsx';
 
 function Container({roomId,socket}) {

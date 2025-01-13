@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect, useState,useRef } from 'react';
-import { CloseIcon } from '@chakra-ui/icons'
 import "./ChatUI.css"
 
 const ChatUI = ({  socket, roomId, username }) => {
