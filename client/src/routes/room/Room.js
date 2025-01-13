@@ -145,7 +145,7 @@ export default function Room({ socket, username }) {
     return () => {
       window.removeEventListener("popstate", backButtonEventListner)
     }
-  }, [socket,username])
+  }, [socket])
 
   return (<>
     <div className="room">

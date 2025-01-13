@@ -116,7 +116,7 @@ const Board = (props) => {
             canvas.removeEventListener('mouseup', endDrawing);
             canvas.removeEventListener('mouseout', endDrawing);
         };
-    }, [brushColor, brushSize, socket,roomId]);
+    }, [brushColor, brushSize, socket]);
 
     // function to clear canvas
     useEffect(() => {
@@ -128,7 +128,7 @@ const Board = (props) => {
             setClearCanvas(false);
         }
         
-    },[clearCanvas,setClearCanvas]);
+    },[clearCanvas]);
 
     // Get Current Window Size
     const [windowSize, setWindowSize] = useState([
