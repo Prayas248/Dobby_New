@@ -178,12 +178,12 @@ export default function Room({ socket, username }) {
           </div>
         </div>
 
-        <DeepChat
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}><DeepChat
         directConnection={{openAI:true}}
         demo={true}
         style={{ borderRadius: '10px' }}
         textInput={{ placeholder: { text: 'Welcome to the demo!' } }}
-      />
+      /></div>
         
 
         <button className="roomSidebarCopyBtn" onClick={() => { copyToClipboard(roomId) }}>Copy Room id</button>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { io } from "socket.io-client";
+import "./styles.css"
 
 function addPropsToReactElement(element, props) {
     if (React.isValidElement(element)) {
@@ -56,7 +57,7 @@ export default function SocketWrapper({ children }) {
 
     useEffect(() => {
         function kickStrangerOut() {
-            navigate("/", { replace: true });
+            navigate("/join-room", { replace: true });
             toast.error("No username provided");
         }
 
@@ -73,6 +74,7 @@ export default function SocketWrapper({ children }) {
             <div className="loading">
                 <h2>Connecting to the server...</h2>
                 <div className="spinner"></div> {/* Add your spinner styles */}
+                <h3>It may take a while..</h3>
             </div>
         );
     }

@@ -6,9 +6,14 @@ import JoinRoom from './routes/joinRoom/JoinRoom';
 import Room from "./routes/room/Room";
 import SocketWrapper from "./components/SocketWrapper";
 import RoomGet from "./routes/Video/Vi";
+import HomePage from "./home/HomePage";
 const router = createBrowserRouter([
     {
         path: "/",
+        element: <HomePage />,
+    },
+    {
+        path: "/join-room",
         element: <JoinRoom />,
     },
     {
