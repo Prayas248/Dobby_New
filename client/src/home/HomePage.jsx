@@ -93,8 +93,8 @@ const HomePage = () => {
                                 </h4>
                             </button>   
                         </div>
-                        <div id="right">
-                            <h1>
+                        <div id="right" >
+                            <h1 >
                                 INNOVATION <br /> COLLABORATION <br /> PRODUCTIVITY 
                             </h1>
                         </div>
