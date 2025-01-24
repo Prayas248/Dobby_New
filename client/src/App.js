@@ -7,6 +7,8 @@ import Room from "./routes/room/Room";
 import SocketWrapper from "./components/SocketWrapper";
 import RoomGet from "./routes/Video/Vi";
 import HomePage from "./home/HomePage";
+import { isMobile } from "react-device-detect";
+import RestrictedAccess from "./routes/restrictedpage";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -14,7 +16,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/join-room",
-        element: <JoinRoom />,
+        element: isMobile ? <RestrictedAccess /> : <JoinRoom />,
     },
     {
         path: "/room/:roomId",

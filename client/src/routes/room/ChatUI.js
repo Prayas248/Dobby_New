@@ -38,6 +38,12 @@ const ChatUI = ({  socket, roomId, username }) => {
     scrollToBottom();
     });
   }, [socket]);
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      sendMessage(); // Trigger the button's functionality
+    }
+  };
   
 
   return (
@@ -52,10 +58,11 @@ const ChatUI = ({  socket, roomId, username }) => {
       </div>
       <div className="chat-input-container">
         <input
-          placeholder="Message..."
+          placeholder="Type here..."
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           className="chat-input"
+          onKeyDown={handleKeyDown}
         />
         <button onClick={sendMessage} className="send-button">Send Message</button>
       </div>

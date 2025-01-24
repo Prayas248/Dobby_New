@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import AceEditor from "react-ace";
 import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate, useParams } from "react-router-dom";
 import { Box, Slide } from "@chakra-ui/react";
@@ -8,27 +7,39 @@ import { generateColor } from "../../utils";
 import Output from "./Output";
 import RoomGet from "../Video/Vi";
 import { DeepChat } from 'deep-chat-react';
-
+import MonacoEditor, { loader  } from "@monaco-editor/react";
 import './Room.css'
 
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/mode-typescript";
-import "ace-builds/src-noconflict/mode-python";
-import "ace-builds/src-noconflict/mode-java";
-import "ace-builds/src-noconflict/mode-yaml";
-import "ace-builds/src-noconflict/mode-golang";
-import "ace-builds/src-noconflict/mode-c_cpp";
-import "ace-builds/src-noconflict/mode-html";
-import "ace-builds/src-noconflict/mode-css";
 
-import "ace-builds/src-noconflict/keybinding-emacs";
-import "ace-builds/src-noconflict/keybinding-vim";
-
-import "ace-builds/src-noconflict/theme-monokai";
-import "ace-builds/src-noconflict/ext-language_tools";
-import "ace-builds/src-noconflict/ext-searchbox";
 import ChatUI from "./ChatUI";
 import Container from "../WhiteBoard/Container";
+
+
+
+
+const monokaiTheme = {
+  base: "vs-dark",
+  inherit: true,
+  rules: [
+    { token: "", background: "272822", foreground: "F8F8F2" },
+    { token: "keyword", foreground: "F92672" },
+    { token: "identifier", foreground: "A6E22E" },
+    { token: "string", foreground: "E6DB74" },
+    { token: "number", foreground: "AE81FF" },
+    { token: "comment", foreground: "75715E", fontStyle: "italic" },
+    { token: "delimiter", foreground: "F8F8F2" },
+  ],
+  colors: {
+    "editor.background": "#272822",
+    "editor.foreground": "#F8F8F2",
+    "editor.lineHighlightBackground": "#3E3D32",
+    "editorCursor.foreground": "#F8F8F0",
+    "editorWhitespace.foreground": "#3B3A32",
+  },
+};
+
+
+
 
 export default function Room({ socket, username }) {
   const editorRef = useRef(null);
@@ -43,6 +54,7 @@ export default function Room({ socket, username }) {
     rightPanel: false,
     middlePanel: false,
   });
+  const [theme, setTheme] = useState("vs-dark");
 
 
 
@@ -56,6 +68,15 @@ export default function Room({ socket, username }) {
   };
   const toggleMiddlePanel = () => {
     setIsShown({ ...isShown, middlePanel: !isShown.middlePanel });
+  };
+  const handleEditorDidMount = () => {
+    loader.init().then((monacoInstance) => {
+      // Register Monokai theme
+      monacoInstance.editor.defineTheme("monokai", monokaiTheme);
+
+      // Apply Monokai theme
+      monacoInstance.editor.setTheme("monokai");
+    });
   };
 
   const codeKeybindingsAvailable = ["default", "emacs", "vim"]
@@ -147,6 +168,8 @@ export default function Room({ socket, username }) {
     }
   }, [socket])
 
+  
+
   return (<>
     <div className="room">
       <div className="roomSidebar">
@@ -193,33 +216,25 @@ export default function Room({ socket, username }) {
       </div>
 
 
-      <AceEditor
-        ref={editorRef}
-        placeholder="Write your code here."
-        className="roomCodeEditor"
-        mode={language}
-        keyboardHandler={codeKeybinding}
-        theme="monokai"
-        name="collabEditor"
-        width="auto"
-        height="auto"
-        value={fetchedCode}
-        onChange={onChange}
-        fontSize={15}
-        showPrintMargin={true}
-        showGutter={true}
-        highlightActiveLine={true}
-        enableLiveAutocompletion={true}
-        enableBasicAutocompletion={false}
-        enableSnippets={false}
-        wrapEnabled={true}
-        tabSize={2}
-        editorProps={{
-          $blockScrolling: true
-        }}
-      />
+      <div className="roomCodeEditor">
+        <MonacoEditor
+          height="96vh"
+          width="auto"
+          language={language}
+          value={fetchedCode}
+          theme={theme}
+          onChange={onChange}
+          options={{
+            fontSize: 12,
+            scrollBeyondLastLine: false,
+            wordWrap: "on",
+          }}
+          onMount={handleEditorDidMount}
+        />
+      </div>
 
       <Box minH="auto" bg="#000000" color="gray.500" px={6} py={8} style={{ overflow: "hidden" }}>
+        
         <Output editorRef={fetchedCode} language={language} />
         <Slide direction='bottom' in={isShown.leftPanel} style={{ zIndex: 10, width: '100%', height: '100vh' }}>
 

@@ -94,14 +94,14 @@
     border-radius: 0;
   }
   
-  .nav-part2 h4 a {
+  .nav-part2 h4 button {
     color: #efeae3;
     text-decoration: none;
     position: relative;
     z-index: 9;
   }
   
-  .nav-part2 h4:hover a {
+  .nav-part2 h4:hover button {
     color: #000000;
   }
   
@@ -122,7 +122,7 @@
   }
   
   #center h1 {
-    font-size: 10vw;
+    font-size: 8.2vw;
     text-align: right;
     line-height: 8vw;
   }

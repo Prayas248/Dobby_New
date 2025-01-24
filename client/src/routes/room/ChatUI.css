@@ -28,7 +28,7 @@
     padding: 0.5rem 1rem; /* Add padding */
     border: none; /* Remove default button border */
     border-radius: 3px; /* Add rounded corners */
-    background-color: #4CAF50; /* Green button color */
+    background-color: #1a1919; /* Green button color */
     color: white; /* White text color */
     font-size: 16px; /* Set font size */
     cursor: pointer; /* Make it look clickable */
@@ -48,7 +48,7 @@
   }
   
   .username {
-    color: #3f51b5; /* Blue color for usernames */
+    color: #1a1919; /* Blue color for usernames */
   }
   
   p {

@@ -66,24 +66,24 @@ const HomePage = () => {
     return (
         <div>
             <div id="loader">
-                <h1>TRUST.</h1>
-                <h1>ACCURACY.</h1>
+                <h1>CREATIVITY.</h1>
                 <h1>INNOVATION.</h1>
+                <h1>COLLABORATION.</h1>
             </div>
             <div id="fixed-image"></div>
             <div id="main">
                 <div id="page1">
                     <nav>
-                        <img src="/Dwight/src/images/pop-ups/dwight_logo_white.png" alt="Dwight Logo" />
-                        <div className="nav-part2">
+                        
+                       {/* <div className="nav-part2">
                             <h4><a href="#">About Us</a></h4>
-                        </div>
+                        </div> */}
                         <h3>Menu</h3>
                     </nav>
                     <div id="center">
                         <div id="left">
                             <h3>
-                                Dwight ensures responsible use of Chatgpt through AI-powered monitoring, real-time risk detection, and compliance with regulations.
+                                Dobby is a collaborative platform offering features like a code editor, video conferencing, a chat application, and a whiteboard with AI-driven suggestions to enhance productivity.
                             </h3>
                             <button className="main-button">
                                 <h4>
@@ -92,11 +92,10 @@ const HomePage = () => {
                                     </Link>
                                 </h4>
                             </button>   
-
                         </div>
                         <div id="right">
                             <h1>
-                                TRUST. <br /> ACCURACY. <br /> INNOVATION.
+                                INNOVATION <br /> COLLABORATION <br /> PRODUCTIVITY 
                             </h1>
                         </div>
                     </div>
@@ -105,10 +104,7 @@ const HomePage = () => {
                         <div id="hero-2"></div>
                         <div id="hero-3"></div>
                     </div>
-                    <img
-                        src="/Dwight/src/images/dwight_sample.png"
-                        alt="Dwight Sample Screenshot"
-                    />
+                   
                 </div>
                 <div id="page2">
                     <div id="moving-text">
@@ -116,18 +112,18 @@ const HomePage = () => {
                             .fill(null)
                             .map((_, i) => (
                                 <div className="con" key={i}>
-                                    <h1>MONITORING</h1>
+                                    <h1>CODE COLLABORATION</h1>
                                     <div id="gola"></div>
-                                    <h1>NO RISK</h1>
+                                    <h1>REAL-TIME COMMUNICATION</h1>
                                     <div id="gola"></div>
-                                    <h1>ENVIRONMENT</h1>
+                                    <h1>PRODUCTIVITY BOOST</h1>
                                     <div id="gola"></div>
                                 </div>
                             ))}
                     </div>
                     <div id="page2-bottom">
                         <h1>
-                            We are a group of design-driven, goal-focused students, coders, and hackers who believe that the details make all the difference.
+                            Dobby is designed to bring teams together, fostering collaboration and enhancing productivity. With real-time updates, AI-driven suggestions, and an easy-to-use interface, it's built for the future of work.
                         </h1>
                         <div id="bottom-part2">
                             <img
@@ -135,7 +131,7 @@ const HomePage = () => {
                                 alt=""
                             />
                             <p>
-                                We love to create, solve, collaborate, and turn amazing ideas into reality. We’re here to partner with you through every step of the process, knowing that relationships are the most important things we build.
+                                At Dobby, we believe in the power of collaboration. Whether it's writing code, brainstorming ideas on a whiteboard, or staying connected through video calls, Dobby makes it all seamless and efficient.
                             </p>
                         </div>
                     </div>
@@ -143,10 +139,10 @@ const HomePage = () => {
                 </div>
                 <div id="page3">
                     <div id="elem-container">
-                        {[{ id: 1, image: "", title: "Working" },
-                        { id: 2, image: "", title: "IDE" },
-                        { id: 3, image: "", title: "Conference" },
-                        { id: 4, image: "", title: "Chat" }
+                        {[{ id: 1, image: "", title: "Code Editor" },
+                        { id: 2, image: "", title: "Video Conferencing" },
+                        { id: 3, image: "", title: "Whiteboard" },
+                        { id: 4, image: "", title: "AI Suggestions" }
                         ].map((elem) => (
                             <div className="elem" data-image={elem.image} key={elem.id}>
                                 <div className="overlay"></div>
@@ -163,7 +159,7 @@ const HomePage = () => {
             </div>
             <div id="footer">
                 <div id="footer-div"></div>
-                <h1>Dwight</h1>
+                <h1>Dobby</h1>
                 <div id="footer-bottom"></div>
             </div>
         </div>

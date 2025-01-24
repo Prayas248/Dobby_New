@@ -9,13 +9,13 @@ const Container = styled.div`
   flex-direction: row;
   height: 100vh;
   width: 100%;
-  background-color: grey;
+  background-color: #1a1919;
 `;
 
 const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 20%;
   padding: 20px;
   background-color: #333;
@@ -25,10 +25,10 @@ const StyledSelect = styled.select`
   padding: 10px;
   margin: 10px 0;
   font-size: 16px;
-  border: 2px solid #ddd;
+  border: 2px solid transparent;
   border-radius: 5px;
-  background-color: #fff;
-  color: #333;
+  background-color: #1a1919;
+  color: #fff;
   outline: none;
 
   &:focus {
@@ -37,8 +37,8 @@ const StyledSelect = styled.select`
 
   option {
     padding: 10px;
-    background-color: #fff;
-    color: #333;
+    background-color:rgb(14, 13, 13);
+    color: #fff;
   }
 `;
 
